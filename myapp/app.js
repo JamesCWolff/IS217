@@ -1,3 +1,5 @@
+var mongoose = require('mongoose');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('static-favicon');
@@ -9,6 +11,12 @@ var routes = require('./rts/index');
 var users = require('./rts/users');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/store');
+require('./models/mongooseLaptop');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function callback(){});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +35,11 @@ app.use('/users', users);
 
 var store = require('./controlers/storecontroler');
 app.get('/store', store.showStore);
+app.post('/store', store.save);
+
+var purchases = require('./controlers/purchasescontroler');
+app.get('/purchases', purchases.showPurchases);
+
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

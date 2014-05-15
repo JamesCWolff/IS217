@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  each laptop in purchases
+   ul
+    li
+     | Price $#{laptop.price}
+    li
+     | Screen Size: #{laptop.screenSize}
+    li
+     | Hard Drive: #{laptop.hardDrive}
+    li
+     | Memory Size: #{laptop.memorySize}
