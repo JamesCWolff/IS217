@@ -5,6 +5,7 @@ exports.showStore = function(req, res){
 	res.render('store', {title: 'Laptop Store:'});
 }
 
+//Question2 saving the quote
 exports.save = function(req,res){
 	var laptop = new mongooseLaptop({
 		price: req.body['pcPrice'],
@@ -16,7 +17,6 @@ exports.save = function(req,res){
 	laptop.save(function(err,laptops){
         if(err) return console.error(err);
     });
-	console.log("added laptop: " + laptop);
 
 	res.render('store', {title: 'Laptop Store: Come again!'});
 }
