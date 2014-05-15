@@ -1,4 +1,6 @@
-//Prototype Laptop
+//Question 5 Use of one other design pattern
+//For question 5 I used a prototype design pattern to create the initial laptop
+//I chose this because prototypes and decorators synergize well together. 
 var laptop = {
 	pcPrice : 1000,
 	screenPrice : 0,
