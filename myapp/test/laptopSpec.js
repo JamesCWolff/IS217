@@ -1,6 +1,7 @@
 var expect = require("chai").expect;
 var laptop = require("../models/laptop.js");
 
+//Question 3 Unit Testing
 describe("laptop", function(){
    it("should return the total value of the laptop ", function(){
         var pc = laptop;
