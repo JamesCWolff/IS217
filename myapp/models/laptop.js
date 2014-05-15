@@ -8,25 +8,27 @@ var laptop = {
 	hardDrive : "128GB",
 	memorySize : "8GB",
 
-	changeScreen:function(s,p){
-		this.screenSize = s;
-		this.screenPrice = p;
-	},
-
-	changeDrive:function(s,p){
-		this.hardDrive = s;
-		this.drivePrice = p;
-	},
-
-	changeMemory:function(s,p){
-		this.memorysize = s;
-		this.memoryPrice = p;
-	}
 };
 
 var pc = laptop;
 
-//Decorator Pattern
+//Question 4 Use of the decorator pattern for the configuration
+
+pc.changeScreen = function(s,p){
+	this.screenSize = s;
+	this.screenPrice = p;
+},
+
+pc.changeDrive=function(s,p){
+	this.hardDrive = s;
+	this.drivePrice = p;
+},
+
+pc.changeMemory=function(s,p){
+	this.memorysize = s;
+	this.memoryPrice = p;
+}
+
 pc.price = function(){
 	return this.pcPrice + this.screenPrice + this.drivePrice + this.memoryPrice;
 };
